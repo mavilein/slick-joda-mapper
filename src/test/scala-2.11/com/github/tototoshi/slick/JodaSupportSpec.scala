@@ -31,7 +31,8 @@ import org.scalatest.{ BeforeAndAfter, FunSpec }
 import org.scalatest._
 import org.joda.time._
 import scala.concurrent.ExecutionContext.Implicits.global
-import slick.jdbc.{ GetResult, JdbcProfile }
+import slick.driver.JdbcProfile
+import slick.jdbc.GetResult
 import slick.jdbc.ActionBasedSQLInterpolation._
 import java.util.{ TimeZone, Locale }
 
@@ -42,7 +43,7 @@ abstract class JodaSupportSpec(
   val jdbcDriver: String,
   val jdbcUser: String,
   val jdbcPassword: String) extends FunSpec
-    with ShouldMatchers
+    with Matchers
     with BeforeAndAfter {
 
   import driver.api._
@@ -219,6 +220,6 @@ abstract class JodaSupportSpec(
   }
 }
 
-import slick.jdbc.H2Profile
+import slick.driver._
 
-class H2JodaSupportSpec extends JodaSupportSpec(H2Profile, H2JodaSupport, "jdbc:h2:mem:testh2;DB_CLOSE_DELAY=-1", "org.h2.Driver", "sa", null)
+class H2JodaSupportSpec extends JodaSupportSpec(H2Driver, H2JodaSupport, "jdbc:h2:mem:testh2;DB_CLOSE_DELAY=-1", "org.h2.Driver", "sa", null)
