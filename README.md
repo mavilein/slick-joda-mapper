@@ -1,6 +1,5 @@
 # slick-joda-mapper
 
-[![Build Status](https://travis-ci.org/mslinn/slick-joda-mapper.svg?branch=master)](https://travis-ci.org/mslinn/slick-joda-mapper)
 [ ![Download](https://api.bintray.com/packages/micronautics/slick/slick-joda-mapper/images/download.svg) ](https://bintray.com/micronautics/slick/slick-joda-mapper/_latestVersion)
 
 Enables you to use joda-time and NScala-Time with Slick.
@@ -18,6 +17,10 @@ You can persist `DateTime`, `Instant`, `LocalDateTime`, `LocalDate`, `LocalTime`
 Scala 2.10 is no longer supported.
 
 ```scala
+
+resolvers += "micronautics/slick on bintray" at "http://dl.bintray.com/micronautics/slick"
+
+
 libraryDependencies ++= Seq(
   "com.typesafe.slick"     %% "slick"             % slickVersion,
   "com.github.tototoshi"   %% "slick-joda-mapper" % slickJodaMapperVersion,
@@ -173,6 +176,9 @@ https://github.com/tototoshi/slick-joda-mapper/blob/master/src/test/scala/com/gi
 
 
 # Changelog
+
+## 2.4.0
+ - Added Slick 3.20 / Scala 2.12 support
 
 ## 2.2.0
  - Use JdbcProfile since JdbcDriver is deprecated.
