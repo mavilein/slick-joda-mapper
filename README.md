@@ -1,8 +1,8 @@
 # slick-joda-mapper
 
-[![Build Status](https://travis-ci.org/tototoshi/slick-joda-mapper.png)](https://travis-ci.org/tototoshi/slick-joda-mapper)
+[ ![Download](https://api.bintray.com/packages/micronautics/slick/slick-joda-mapper/images/download.svg) ](https://bintray.com/micronautics/slick/slick-joda-mapper/_latestVersion)
 
-Enables you to use joda-time with Slick.
+Enables you to use joda-time and NScala-Time with Slick.
 You can persist `DateTime`, `Instant`, `LocalDateTime`, `LocalDate`, `LocalTime`, `DateTimeZone` with Slick.
 
 # Usage
@@ -11,15 +11,22 @@ You can persist `DateTime`, `Instant`, `LocalDateTime`, `LocalDate`, `LocalTime`
 
 |Slick version|slick-joda-mapper version|
 |-------------|--------------|
-|3.1.x|2.2.0|
-|3.0.x|2.0.0|
+|3.2.x|2.4.0| (Scala 2.11 and 2.12)
+|3.1.x|2.2.0| (Scala 2.11)
+
+Scala 2.10 is no longer supported.
 
 ```scala
+
+resolvers += "micronautics/slick on bintray" at "http://dl.bintray.com/micronautics/slick"
+
+
 libraryDependencies ++= Seq(
-  "com.typesafe.slick" %% "slick" % slickVersion,
-  "com.github.tototoshi" %% "slick-joda-mapper" % slickJodaMapperVersion,
-  "joda-time" % "joda-time" % "2.7",
-  "org.joda" % "joda-convert" % "1.7"
+  "com.typesafe.slick"     %% "slick"             % slickVersion,
+  "com.github.tototoshi"   %% "slick-joda-mapper" % slickJodaMapperVersion,
+  "com.github.nscala-time" %% "nscala-time"       % "2.16.0",
+  //"joda-time" % "joda-time"    % "2.9.7", // this works, but using nscala-time makes more sense
+  "org.joda"    % "joda-convert" % "1.8.1"
 )
 ```
 
@@ -169,6 +176,9 @@ https://github.com/tototoshi/slick-joda-mapper/blob/master/src/test/scala/com/gi
 
 
 # Changelog
+
+## 2.4.0
+ - Added Slick 3.20 / Scala 2.12 support
 
 ## 2.2.0
  - Use JdbcProfile since JdbcDriver is deprecated.
